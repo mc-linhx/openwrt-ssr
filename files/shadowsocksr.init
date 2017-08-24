@@ -408,6 +408,12 @@ EOF
 			/etc/init.d/dnsmasq restart
 			;;
 	esac
+	else
+	mkdir -p /tmp/dnsmasq.d
+	cat > /tmp/dnsmasq.d/dnsmasq-ssr.conf <<EOF
+conf-dir=/etc/dnsmasq.ssr
+EOF
+	/etc/init.d/dnsmasq restart
 	fi
 	
 	fi
